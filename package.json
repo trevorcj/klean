@@ -1,20 +1,22 @@
 {
   "name": "create-klean",
-  "version": "0.1.0",
-  "description": "Opinionated React project initializer",
+  "version": "1.0.0",
+  "description": "CLI to scaffold clean React + Vite projects with optional Tailwind CSS",
   "bin": {
     "create-klean": "bin/create-klean.js"
   },
   "main": "src/cli.js",
   "scripts": {
     "start": "node bin/create-klean.js",
-    "lint": "node --check src/cli.js"
+    "lint": "node --check src/cli.js",
+    "check": "npm run lint",
+    "prepublishOnly": "npm run check"
   },
   "keywords": [
-    "cli",
-    "vite",
     "react",
-    "scaffold"
+    "vite",
+    "scaffold",
+    "cli"
   ],
   "license": "MIT",
   "engines": {
@@ -22,5 +24,13 @@
   },
   "dependencies": {
     "inquirer": "^8.2.6"
-  }
+  },
+  "type": "commonjs",
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "author": "Chimamanda Justus"
 }
