@@ -109,8 +109,67 @@ async function getProjectConfig() {
 }
 
 function appTemplate() {
-  return `function App() {
-  return <div>Hello world</div>
+  return `const sections = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'install', label: 'Quick Start' },
+  { id: 'why-klean', label: 'Why Klean' },
+  { id: 'next-steps', label: 'Next Steps' }
+]
+
+function App() {
+  return (
+    <div className="app-shell">
+      <aside className="toc" aria-label="Table of contents">
+        <p className="toc-eyebrow">Contents</p>
+        <nav>
+          <ul>
+            {sections.map((section) => (
+              <li key={section.id}>
+                <a href={\`#\${section.id}\`}>{section.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </aside>
+
+      <main className="content">
+        <section id="overview" className="hero card reveal">
+          <p className="badge">Klean starter</p>
+          <h1>Build sharp React products, minus the boilerplate chaos.</h1>
+          <p>
+            Klean gives you a focused foundation: clean files, sane defaults, and room to build what
+            matters.
+          </p>
+
+          <div className="command-row" id="install">
+            <code>npm create klean</code>
+            <button type="button" aria-label="Copy command" onClick={() => navigator.clipboard.writeText('npm create klean')}>
+              Copy
+            </button>
+          </div>
+
+          <div className="hero-links">
+            <a href="/docs">Read docs</a>
+            <a href="#next-steps">See next steps</a>
+          </div>
+        </section>
+
+        <section id="why-klean" className="card reveal">
+          <h2>Why teams pick Klean</h2>
+          <ul>
+            <li>Beautifully minimal structure from day one.</li>
+            <li>No leftover demo UI, logos, or noisy sample code.</li>
+            <li>Supports JavaScript or TypeScript with optional Tailwind.</li>
+          </ul>
+        </section>
+
+        <section id="next-steps" className="card reveal">
+          <h2>Next steps</h2>
+          <p>Start building your product, then dive into the docs whenever you need deeper guidance.</p>
+        </section>
+      </main>
+    </div>
+  )
 }
 
 export default App
@@ -227,7 +286,207 @@ async function setupTailwind(projectDir) {
 
 async function setupStyling(projectDir, withTailwind) {
   const indexCssPath = path.join(projectDir, 'src', 'index.css')
-  const content = withTailwind ? '@import "tailwindcss";\n' : ''
+  const content = `${withTailwind ? '@import "tailwindcss";\n\n' : ''}@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Space Grotesk', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #e9ecf3;
+  background: radial-gradient(circle at top, #1f2847, #0a0f1d 42%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.toc {
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  padding: 1rem;
+  background: rgba(16, 23, 44, 0.7);
+  backdrop-filter: blur(8px);
+}
+
+.toc-eyebrow {
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: #a5b4fc;
+}
+
+.toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.toc a {
+  color: #d7def8;
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.toc a:hover {
+  color: #8be9ff;
+}
+
+.content {
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  border-radius: 20px;
+  padding: 1.8rem;
+  background: linear-gradient(160deg, rgba(20, 28, 50, 0.84), rgba(10, 14, 26, 0.88));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 40px rgba(2, 4, 12, 0.35);
+}
+
+.reveal {
+  animation: slideFade 500ms ease both;
+}
+
+.badge {
+  display: inline-flex;
+  margin: 0 0 1rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(34, 211, 238, 0.15);
+  color: #99f6ff;
+}
+
+h1,
+h2 {
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.08;
+  margin-bottom: 0.9rem;
+}
+
+h2 {
+  font-size: clamp(1.2rem, 3.5vw, 1.65rem);
+  margin-bottom: 0.8rem;
+}
+
+p,
+li {
+  color: #d3daef;
+  line-height: 1.65;
+}
+
+.command-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 1.2rem 0;
+}
+
+code {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.72rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid rgba(139, 233, 255, 0.45);
+  background: rgba(10, 18, 34, 0.95);
+  color: #cbf6ff;
+  font-size: 0.95rem;
+}
+
+button {
+  border: 0;
+  border-radius: 12px;
+  padding: 0.72rem 1rem;
+  background: linear-gradient(135deg, #22d3ee, #6d95ff);
+  color: #00111d;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(34, 211, 238, 0.35);
+}
+
+.hero-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-links a {
+  color: #b6c8ff;
+  text-decoration: none;
+}
+
+.hero-links a:hover {
+  color: #ffffff;
+}
+
+@keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 860px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .toc {
+    position: static;
+  }
+}
+`
   await fs.writeFile(indexCssPath, content, 'utf8')
 }
 
