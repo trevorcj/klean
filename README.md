@@ -72,3 +72,24 @@ npm run dev
 - Updates HTML title to project name
 - Ensures scalable `src/` structure
 - Replaces generated app README with Klean-focused setup docs
+
+
+## Package metadata
+
+This project is configured as an npm package with:
+
+- Package name: `create-klean`
+- Public CLI binary: `create-klean`
+- License: MIT
+- Author: Chimamanda Justus
+- Keywords: `react`, `vite`, `scaffold`, `cli`
+
+## Semantic versioning
+
+Releases follow [Semantic Versioning](https://semver.org/) (`MAJOR.MINOR.PATCH`):
+
+- `MAJOR`: breaking CLI changes
+- `MINOR`: backwards-compatible features
+- `PATCH`: backwards-compatible fixes
+
+Current package version: `1.0.0`.
