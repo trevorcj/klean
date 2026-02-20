@@ -8,6 +8,29 @@ This document breaks the project into concrete tasks and includes test instructi
 - Scaffold engine: Vite (`npm create vite@latest`)
 - Styling option: Tailwind CSS v4 (`tailwindcss` + `@tailwindcss/vite`)
 
+
+## How to test locally before npm publish
+You do **not** need to publish to npm to test. Use one of these:
+
+1. Direct run:
+   ```bash
+   npm install
+   node bin/create-klean.js my-klean-app
+   ```
+2. Linked command name:
+   ```bash
+   npm install
+   npm link
+   create-klean my-klean-app
+   ```
+3. Local npx execution:
+   ```bash
+   npm install
+   npx --yes . my-klean-app
+   ```
+
+---
+
 ## Task 1 — Bootstrap CLI package
 **Goal:** make a runnable CLI command `create-klean`.
 
