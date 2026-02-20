@@ -57,8 +57,9 @@ You do **not** need to publish to npm to test. Use one of these:
 ### Done
 - Prompts for:
   - project name (if not provided as first argument)
-  - language (JavaScript/TypeScript)
+  - language (JavaScript/TypeScript, JavaScript is default)
   - Tailwind yes/no
+  - folder structure (Plain default / Feature-based)
 - Runs Vite scaffold with the proper template (`react` or `react-ts`).
 - Runs `npm install` in generated project.
 
@@ -121,7 +122,7 @@ Build should succeed.
   - `src/services`
   - `src/utils`
   - `src/hooks`
-  - `src/types`
+  - `src/types` (TypeScript + Feature-based only)
 
 ### How to test
 ```bash
@@ -133,16 +134,18 @@ Confirm icon and title were updated, and folders exist.
 
 ---
 
-## Task 6 — Final validation pipeline
-**Goal:** ensure generated project actually works.
+## Task 6 — Final UX polish and generated docs
+**Goal:** provide clear progress messaging and a better generated README.
 
 ### Done
-- Runs `npm run build` before reporting success.
-- Prints final success message and next steps.
+- Prints explicit install progress messages after scaffolding.
+- Does not force a build step during generation.
+- Rewrites generated project `README.md` with Klean-specific setup notes and Vite acknowledgement.
 
 ### How to test
-Generate app and confirm build check runs automatically. You can additionally run:
+Generate app and confirm progress messages appear. Then:
 ```bash
 cd my-klean-app
+cat README.md
 npm run dev
 ```

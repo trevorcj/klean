@@ -45,7 +45,6 @@ npx --yes . my-app
 ## What to verify after generation
 ```bash
 cd my-app
-npm run build
 npm run dev
 ```
 
@@ -53,11 +52,13 @@ Check the generated output:
 - `src/App.jsx` or `src/App.tsx` contains `Hello world`
 - `src/index.css` is empty (no Tailwind) or has `@import "tailwindcss";` (Tailwind yes)
 - `index.html` points favicon to `/klean-logo.svg` and title matches app name
-- folder structure includes `src/assets`, `src/features`, `src/ui`, `src/services`, `src/utils`, `src/hooks`, `src/types`
+- if Plain selected: `src/components` is created
+- if Feature-based selected: `src/assets`, `src/features`, `src/ui`, `src/services`, `src/utils`, `src/hooks` are created (`src/types` only for TypeScript)
 
 ## Prompts
 - Language: JavaScript or TypeScript
 - Tailwind CSS: Yes/No
+- Folder structure: Plain (default) or Feature-based
 
 ## What it does
 - Scaffolds Vite React app (`react` or `react-ts`)
@@ -68,4 +69,4 @@ Check the generated output:
 - Replaces Vite favicon with Klean logo
 - Updates HTML title to project name
 - Ensures scalable `src/` structure
-- Runs build validation before success message
+- Replaces generated app README with Klean-focused setup docs
