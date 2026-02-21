@@ -1,0 +1,117 @@
+:root {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #191919;
+  background: #ededed;
+  --accent: #46c871;
+  --accent-dark: #2da157;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: #ececec; color: #111; }
+a { color: inherit; }
+
+.page { min-height: 100vh; }
+.content-width { width: min(920px, calc(100% - 32px)); margin: 0 auto; }
+
+.topbar {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.brand { display: flex; gap: 8px; align-items: center; font-weight: 600; }
+.brand-mark { color: var(--accent-dark); font-size: 15px; }
+
+.nav-links { display: flex; gap: 18px; }
+.nav-links a { opacity: 0.88; text-decoration: none; border-bottom: 1px solid transparent; transition: .2s; }
+.nav-links a:hover { border-color: #777; opacity: 1; }
+
+.btn {
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-primary { background: var(--accent); box-shadow: 0 0 0 1px #2e9f57 inset; font-weight: 600; }
+.btn-primary:hover { background: #57d583; }
+.btn-command { background: #e6e6e6; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+.main-content { padding-bottom: 72px; }
+.hero { margin-top: 30px; width: min(620px, 100%); }
+.hero h1 { font-size: 36px; margin: 0 0 12px; letter-spacing: -0.02em; }
+.hero p { color: #5c5c5c; line-height: 1.5; margin: 0 0 14px; }
+.hero-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+.hero small { color: #8a8a8a; }
+
+.terminal-preview {
+  margin-top: 24px;
+  border: 1px solid #d6d6d6;
+  background: #f6f6f6;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 20px 38px -30px rgba(0, 0, 0, .4);
+}
+.terminal-top {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #dedede;
+  background: #f0f0f0;
+  padding: 0 14px;
+}
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.red { background: #ff5f57; }
+.yellow { background: #febc2e; }
+.green { background: #28c840; }
+.title { margin-left: 8px; color: #606060; font-size: 13px; }
+
+.terminal-body { display: grid; grid-template-columns: 1fr 1.2fr 1.4fr; min-height: 340px; }
+.pane { padding: 14px; border-right: 1px solid #dfdfdf; }
+.pane:last-child { border-right: 0; }
+.pane h3 { margin: 0 0 12px; font-size: 14px; }
+.pane ul { list-style: none; margin: 0; padding: 0; color: #444; font-size: 13px; }
+.pane li { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px dashed #ddd; }
+.code { border-radius: 8px; padding: 8px; font-size: 12px; margin-bottom: 8px; }
+.code.ok { background: #dcf5e3; color: #1a6f35; }
+.code.warn { background: #fff0d7; color: #8a5a00; }
+.muted { color: #7a7a7a; font-size: 13px; }
+.mini-input { margin-top: 12px; font-size: 12px; background: #efefef; border: 1px solid #ddd; border-radius: 8px; padding: 8px; color: #777; }
+pre { margin: 0; font-size: 12px; background: #e7f5eb; padding: 12px; border-radius: 10px; color: #1e5e34; white-space: pre-wrap; }
+
+.stack, .pricing, .faq, .cta { margin-top: 44px; width: min(620px, 100%); }
+h2 { font-size: 29px; margin: 0 0 12px; letter-spacing: -0.02em; }
+.stack h2:not(:first-child) { margin-top: 22px; }
+.stack ul { margin: 0; padding-left: 22px; line-height: 1.7; }
+
+.pricing table { width: 100%; border-collapse: collapse; background: #f8f8f8; border: 1px solid #dfdfdf; border-radius: 8px; overflow: hidden; }
+.pricing th, .pricing td { font-size: 13px; padding: 10px; border-bottom: 1px solid #e1e1e1; text-align: left; }
+.pricing tr:last-child td { border-bottom: none; }
+
+.faq-item {
+  width: 100%; display: flex; justify-content: space-between; align-items: start;
+  background: transparent; border: none; border-bottom: 1px solid #ddd; padding: 12px 0; text-align: left; cursor: pointer;
+}
+.faq-item p { margin: 8px 0 0; color: #666; }
+
+.cta p { color: #666; }
+.footer {
+  padding: 28px 0 44px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: #666;
+}
+
+@media (max-width: 900px) {
+  .topbar { flex-wrap: wrap; height: auto; gap: 8px; padding: 14px 0; }
+  .terminal-body { grid-template-columns: 1fr; }
+  .pane { border-right: 0; border-bottom: 1px solid #dfdfdf; }
+}
