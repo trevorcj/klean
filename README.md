@@ -6,6 +6,8 @@ architecture.
 
 [![npm version](https://img.shields.io/npm/v/create-klean.svg)](https://www.npmjs.com/package/create-klean)
 
+![Klean cover image](./homepage/klean.png)
+
 ## Quick Start
 
 Create a new React project using Klean:
