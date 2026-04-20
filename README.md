@@ -4,7 +4,14 @@ Opinionated React project initializer that scaffolds a clean Vite +
 React application with optional Tailwind CSS and structured project
 architecture.
 
-[![npm version](https://img.shields.io/npm/v/create-klean.svg)](https://www.npmjs.com/package/create-klean)
+<br />
+<p align="center">
+  <a href="https://www.npmjs.com/package/create-klean">
+    <img src="https://img.shields.io/npm/v/create-klean.svg" alt="npm version">
+  </a>
+  <br />
+  <a href="https://tryklean.vercal.app">Visit homepage</a>
+</p>
 
 ![Klean cover image](./homepage/klean.png)
 
