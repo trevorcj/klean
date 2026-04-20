@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Klean | Clean React Scaffolding</title>
+    <meta
+      name="description"
+      content="A simple CLI that gives you a clean, structured React project from the first line of code." />
+    <meta name="author" content="Chimamanda Justus" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%A7%BC</text></svg>" />
+
+    <meta property="og:title" content="Klean | Clean React Scaffolding" />
+    <meta
+      property="og:description"
+      content="A simple CLI for structured React projects. No boilerplate, just code." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tryklean.vercel.app/" />
+    <meta property="og:image" content="https://tryklean.vercel.app/klean.png" />
+
+    <link rel="canonical" href="https://tryklean.vercel.app" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header-nav">
+        <div class="logo">
+          <a
+            href="https://www.npmjs.com/package/klean"
+            class="logo-link"
+            data-tooltip="view on npm"
+            target="_blank"
+            rel="noreferrer">
+            <span class="logo-link-label">Klean</span>
+            <span class="logo-link-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <button
+          id="theme-toggle"
+          class="theme-btn"
+          aria-label="Toggle dark mode">
+          <svg
+            class="sun-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+          </svg>
+          <svg
+            class="moon-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+          </svg>
+        </button>
+      </header>
+
+      <section class="hero">
+        <p class="supporting-text">
+          A simple CLI that gives you a
+          <span class="highlight">clean, structured React project</span> from
+          the first line of code. It removes boilerplate code and distractions
+          and gives you a solid starting point.
+        </p>
+
+        <div class="command-container">
+          <code class="command-box">npm create klean</code>
+          <button
+            class="copy-btn"
+            onclick="copyCommand(this)"
+            data-tooltip="Copied!">
+            Copy
+          </button>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <section class="problem">
+        <p>
+          Every time you start a new React project, you
+          <span class="highlight">delete files you don't need</span>, strip out
+          styles you won’t use, and rewrite the default app. Then you think
+          about structure, folders, setup, and all the little decisions that
+          slow you down before you’ve even started building.
+        </p>
+        <br />
+        <p>This small work adds up and you do it every single time.</p>
+        <br />
+        <p>Klean removes that entire workflow.</p>
+        <br />
+        <p>
+          It scaffolds a React project using Vite, then immediately clears out
+          everything you don’t need and replaces it with a
+          <span class="highlight">clean, intentional starting point</span>. No
+          demo code or leftover styling. Just a minimal app and a structure you
+          can build on.
+        </p>
+      </section>
+
+      <hr class="divider" />
+
+      <section class="structure">
+        <p>
+          Let's talk project structure. You get 2 structure options to choose
+          from:
+        </p>
+        <br />
+        <div class="grid">
+          <div class="card">
+            <h4>Plain</h4>
+            <p>
+              For simple projects and quick builds. You get a minimal setup with
+              a components folder and just enough structure to move fast.
+            </p>
+            <ul class="tag-list">
+              <li>fast</li>
+              <li>minimal</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Feature-based</h4>
+            <p>
+              For real applications that need to scale. Your code is organized
+              by domain, keeping logic and UI grouped together.
+            </p>
+            <ul class="tag-list">
+              <li>scalable</li>
+              <li>production-ready</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+      <footer class="footer">
+        <p>
+          Built by
+          <a
+            href="https://linkedin.com/in/trevorcjustus"
+            class="footer-link"
+            target="_blank"
+            rel="noreferrer">
+            <span class="footer-link-label">Chimamanda Justus</span
+            ><span class="footer-link-arrow">↗</span>
+          </a>
+          Want to contribute? Open a PR on
+          <a
+            href="https://github.com/trevorcj/klean"
+            class="footer-link"
+            target="_blank"
+            rel="noreferrer">
+            <span class="footer-link-label">GitHub</span
+            ><span class="footer-link-arrow">↗</span>
+          </a>
+          or say hi.
+          <a
+            href="mailto:trevorcjustus@gmail.com?subject=Enquiry about Klean"
+            class="footer-link">
+            <span class="footer-link-label">trevorcjustus@gmail.com</span
+            ><span class="footer-link-arrow">↗</span>
+          </a>
+        </p>
+      </footer>
+    </main>
+
+    <script>
+      const themeBtn = document.getElementById("theme-toggle");
+
+      // Persist theme choice in localStorage
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-theme");
+      }
+
+      themeBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-theme");
+        localStorage.setItem(
+          "theme",
+          document.body.classList.contains("dark-theme") ? "dark" : "light",
+        );
+      });
+
+      function copyCommand(button) {
+        navigator.clipboard.writeText("npm create klean").then(() => {
+          button.classList.add("show-tooltip");
+          setTimeout(() => button.classList.remove("show-tooltip"), 1500);
+        });
+      }
+    </script>
+  </body>
+</html>
