@@ -10,7 +10,7 @@ architecture.
     <img src="https://img.shields.io/npm/v/create-klean.svg" alt="npm version">
   </a>
   <br />
-  <a href="https://tryklean.vercal.app">Visit homepage</a>
+  <a href="https://tryklean.vercel.app">Visit homepage</a>
 </p>
 
 ![Klean cover image](./homepage/klean.png)
